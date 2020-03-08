@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Result Data</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="landing">
+	<h1>Scoring Mechanism</h1>
+    <br>
+    <h4> Score consists of two parts, one is Behavioural Score which comprises of the social media activity, while the other is the financial score which is based on the data provided by you. This score provided as a cumilitive of two scores. </h4>
+    
+    <br>
+
+    <form action="{{ url_for('result') }}" method="post">
+        <button type="submit" class="btn btn-primary btn-block btn-large">View Result</button>
+    </form>
+
+   <br>
+   <br>
+
+   {{ analysis_score }}
+
+ </div>
+
+
+</body>
+</html>

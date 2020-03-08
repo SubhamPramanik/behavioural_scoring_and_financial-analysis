@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Financial Data Input</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Financial Analysis Data</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('financialScore') }}" method="post">
+
+        <input type="number" name="age" placeholder="Age" required="required" />
+        <input type="number" name="monthly_loan_payments" placeholder="Monthly Loan Payments" required="required" />
+        <input type="number" name="monthly_living_cost" placeholder="Monthly Living Cost" required="required" />
+        <input type="number" name="monthly_gross_income" placeholder="Monthly Gross Income" required="required" />
+        <input type="number" name="loan_balance" placeholder="Loan Balance" required="required" />
+        <input type="number" name="credit_limit_offered" placeholder="Credit Offered" required="required" />
+        <input type="number" name="number_of_loans_taken" placeholder="Number Of Loans Taken" required="required" />
+        <input type="number" name="number_of_home_loans_taken" placeholder="Number Of Home Loans Taken" required="required" />
+        <input type="number" name="default3059" placeholder="Number Of Default in 30-59 Days" required="required" />
+    	<input type="number" name="default6089" placeholder="Number Of Default in 60-89 Days" required="required" />
+        <input type="number" name="default90" placeholder="Number Of Default 90 Days" required="required" />
+		<input type="number" name="numberOfDependents" placeholder="Number Of Dependents" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
