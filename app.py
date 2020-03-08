@@ -53,7 +53,7 @@ def result():
     if request.method == 'POST':
         global financial_score
         global behavioural_score
-        score = (1 - financial_score) + behavioural_score
+        score = ((1 - financial_score) + behavioural_score) / 2
         return render_template('result.html', analysis_score='You\'re given a score of {} out of 1'.format(score))
     else:
         return render_template('result.html')
