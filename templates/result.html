@@ -17,7 +17,16 @@
 	<h1>Scoring Mechanism</h1>
     <br>
     <h4> Score consists of two parts, one is Behavioural Score which comprises of the social media activity, while the other is the financial score which is based on the data provided by you. This score provided as a cumilitive of two scores. </h4>
-    
+    <br>
+    <div>
+        <h4> There are 4 categories of score: </h4>
+        <ol>
+            <li>More than 0.75:</li> <p>Extremely Good</p>
+            <li>More than 0.5 but less than 0.75:</li> <p>Good</p>
+            <li>More than 0 but less than 0.5:</li> <p>Okay</p>
+            <li>Less than 0:</li> <p>Concerning</p>
+        </ol>
+    </div>
     <br>
 
     <form action="{{ url_for('result') }}" method="post">
@@ -25,9 +34,10 @@
     </form>
 
    <br>
-   <br>
-
+   
    {{ analysis_score }}
+   <br>
+   {{ score_category }}
 
  </div>
 

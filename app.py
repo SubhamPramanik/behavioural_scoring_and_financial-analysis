@@ -48,13 +48,24 @@ def financialScore():
     else:
         return render_template('index.html')
 
+def category(num):
+    if num > 0.75:
+        return 'Extremely Good'
+    elif num > 0.5 and num <= 0.75:
+        return 'Good'
+    elif num > 0 and num <= 0.5:
+        return 'Okay'
+    else:
+        return 'Concerning'
+
 @app.route('/result', methods=['POST', 'GET'])
 def result():
     if request.method == 'POST':
         global financial_score
         global behavioural_score
         score = ((1 - financial_score) + behavioural_score) / 2
-        return render_template('result.html', analysis_score='You\'re given a score of {} out of 1'.format(score))
+        categoryStr = category(score)
+        return render_template('result.html', analysis_score='You\'re given a score of {} out of 1'.format(score), score_category='You are put into {} category.'.format(categoryStr))
     else:
         return render_template('result.html')
 
